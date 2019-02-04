@@ -6,9 +6,11 @@ public class GunController : MonoBehaviour {
 
     public GameObject bulletprefab;
     public Transform muzzle;
-    public float bulletPower;
-    private float cooltime = 1;
-    public int bulletnum = 7;
+    public float bulletPower; //弾を飛ばす強さ
+    private float cooltime; //次に打つまでの時間
+    public float nextbullet; //次に玉を打てる時間
+    public int bulletnum; //弾の数
+    bool fring = false; //銃を撃ったかの判定
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +22,13 @@ public class GunController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButton(1))
+        if (fring == true)
+        {
+            this.transform.Rotate(10, 0, 0);//反動の角度を戻す
+            fring = false;
+        }
+
+        if (Input.GetMouseButton(1))//エイムの切り替え
         {
             this.transform.localPosition = new Vector3(0.0f, -0.3f, 0.8f);
         }
@@ -29,34 +37,36 @@ public class GunController : MonoBehaviour {
             this.transform.localPosition = new Vector3(0.5f, -0.3f, 0.8f);
         }
 
-
-        RaycastHit hit;
+        //RaycastHit hit;
 
         //銃を撃つ処理
-        if (cooltime > 7)
+        if (cooltime > nextbullet)
         {
             if (Input.GetMouseButton(0))
             {
                 if (bulletnum > 0)
                 {
-                    Shot();
-                    bulletnum -= 1;
-                    cooltime = 0;
+                    Shot();//弾を打つ
+                    bulletnum -= 1;//残段数を減らす
+                    cooltime = 0; //次に玉を打てる時間の更新
+                    this.transform.Rotate(-10, 0, 0);//銃の反動
+                    fring = true;
                 }
             }
         }
         else
         {
-            cooltime += 1;
+            cooltime += 1;//時間の更新
         }
 
+        //リロード
         if (Input.GetKeyDown("r"))
         {
             bulletnum = 7;
         }
 	}
 
-    void Shot()
+    void Shot()//銃を撃つ処理
     {
         var bulletInstance = GameObject.Instantiate(bulletprefab, muzzle.position, muzzle.rotation) as GameObject;
         bulletInstance.GetComponent<Rigidbody>().AddForce(bulletInstance.transform.forward * bulletPower);

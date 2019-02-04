@@ -565,6 +565,7 @@ MonoBehaviour:
     type: 2}
   muzzle: {fileID: 1105218131}
   bulletPower: 5000
+  nextbullet: 20
   bulletnum: 7
 --- !u!4 &1721975561 stripped
 Transform:
