@@ -13,6 +13,8 @@ public class PlayerDirector : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         PlayerTransform = transform.parent;
         CameraTransform = GetComponent<Transform>();
     }
