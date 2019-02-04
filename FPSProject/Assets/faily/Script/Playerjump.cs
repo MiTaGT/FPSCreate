@@ -24,7 +24,7 @@ public class Playerjump : MonoBehaviour {
         if (col.gameObject.tag == "Grond" && Input.GetKey(KeyCode.Space)) //Groundと接触している、かつスペースキーが押されたとき
         {
             PlayerRigid.AddForce(transform.up * 130);
-
+            Debug.Log("HIt");
 
 
         }
