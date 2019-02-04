@@ -22,11 +22,11 @@ public class GunController : MonoBehaviour {
 	void Update () {
         if (Input.GetMouseButton(1))
         {
-            this.transform.position = new Vector3(0.0f, -0.3f, 0.8f);
+            this.transform.localPosition = new Vector3(0.0f, -0.3f, 0.8f);
         }
         else
         {
-            this.transform.position = new Vector3(0.5f, -0.3f, 0.8f);
+            this.transform.localPosition = new Vector3(0.5f, -0.3f, 0.8f);
         }
 
 
