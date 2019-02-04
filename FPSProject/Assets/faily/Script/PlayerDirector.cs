@@ -13,10 +13,8 @@ public class PlayerDirector : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-
         PlayerTransform = transform.parent;
         CameraTransform = GetComponent<Transform>();
-
     }
 
     // Update is called once per frame
@@ -33,24 +31,18 @@ public class PlayerDirector : MonoBehaviour {
         }
         else
         {
-
             if (ii > 300)
             {
-
                 if (Input.GetAxis("Mouse Y") < 0)
                 {
-
                     CameraTransform.transform.Rotate(-Y_Rotation, 0, 0);
-
                 }
             }
             else
             {
                 if (Input.GetAxis("Mouse Y") > 0)
-                {
-
+                { 
                     CameraTransform.transform.Rotate(-Y_Rotation, 0, 0);
-
                 }
 
             }
