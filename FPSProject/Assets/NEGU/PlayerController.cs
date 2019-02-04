@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
     void Start () {
         PlayerTransform = transform.parent;
         CameraTransform = GetComponent<Transform>();
+
     }
 	
 	// Update is called once per frame

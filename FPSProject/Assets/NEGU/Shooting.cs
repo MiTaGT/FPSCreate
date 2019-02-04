@@ -6,14 +6,17 @@ public class Shooting : MonoBehaviour {
 
     public GameObject bulletprefab;
     public Transform muzzle;
-    public float bulletPower = 500f;
+    public float bulletPower;
     private float cooltime = 1;
     public int bulletnum = 7;
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+
+        Cursor.lockState = CursorLockMode.Locked;
+
+        Cursor.visible = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,9 +33,9 @@ public class Shooting : MonoBehaviour {
                 {
                     Shot();
                     bulletnum -= 1;
+                    cooltime = 0;
                 }
             }
-            cooltime = 0;
         }
         else
         {
