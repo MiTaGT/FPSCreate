@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shooting : MonoBehaviour {
+public class GunController : MonoBehaviour {
 
     public GameObject bulletprefab;
     public Transform muzzle;
@@ -20,11 +20,19 @@ public class Shooting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //transform.rotation = Quaternion.LookRotation(ray.direction);
+        if (Input.GetMouseButton(1))
+        {
+            this.transform.position = new Vector3(0.0f, -0.3f, 0.8f);
+        }
+        else
+        {
+            this.transform.position = new Vector3(0.5f, -0.3f, 0.8f);
+        }
+
 
         RaycastHit hit;
 
+        //銃を撃つ処理
         if (cooltime > 7)
         {
             if (Input.GetMouseButton(0))
