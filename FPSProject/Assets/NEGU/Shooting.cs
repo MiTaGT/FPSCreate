@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour {
     public Transform muzzle;
     public float bulletPower = 500f;
     private float cooltime = 1;
+    public int bulletnum = 7;
 
 	// Use this for initialization
 	void Start () {
@@ -16,22 +17,31 @@ public class Shooting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        transform.rotation = Quaternion.LookRotation(ray.direction);
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //transform.rotation = Quaternion.LookRotation(ray.direction);
 
         RaycastHit hit;
 
-        if (cooltime > 5)
+        if (cooltime > 7)
         {
             if (Input.GetMouseButton(0))
             {
-                Shot();
+                if (bulletnum > 0)
+                {
+                    Shot();
+                    bulletnum -= 1;
+                }
             }
             cooltime = 0;
         }
         else
         {
             cooltime += 1;
+        }
+
+        if (Input.GetKeyDown("r"))
+        {
+            bulletnum = 7;
         }
 	}
 
