@@ -14,11 +14,11 @@ public class BulletDestory : MonoBehaviour {
 		
 	}
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collider)
     {
-        if(collision.gameObject.tag == "map")
+        if(collider.gameObject.tag == "map")
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }

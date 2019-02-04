@@ -564,7 +564,7 @@ MonoBehaviour:
   bulletprefab: {fileID: 1677174133804264, guid: 964665a7e57766e4988707413d643be8,
     type: 2}
   muzzle: {fileID: 1105218131}
-  bulletPower: 10000
+  bulletPower: 1000
   bulletnum: 7
 --- !u!4 &1721975561 stripped
 Transform:
