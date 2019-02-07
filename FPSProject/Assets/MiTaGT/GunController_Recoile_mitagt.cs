@@ -50,7 +50,7 @@ public class GunController_Recoile_mitagt : MonoBehaviour {
         }
 
         //RaycastHit hit;
-        Debug.Log(this.transform.parent.transform.localEulerAngles);
+        //Debug.Log(this.transform.parent.transform.localEulerAngles);
         //銃を撃つ処理
         if (cooltime > nextbullet)
         {
