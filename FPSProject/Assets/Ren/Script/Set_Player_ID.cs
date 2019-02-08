@@ -32,20 +32,24 @@ public class Set_Player_ID : NetworkBehaviour {
         playerNetID = GetComponent<NetworkIdentity>().netId;
         //名前をつけます
         CmdTellServerMyIdentity(MakeUniqueIdentity());
+        Debug.Log("プレイヤーID：" + playerNetID);
     }
     void SetIdentity() {
         //自分以外のプレイヤーの時
         if (!isLocalPlayer) {
             //名前を変えない
+            Debug.Log("名前を変えません…");
             mypos.name = PlayerUniqueIdentity;
         } else {
             //自分の時
+            Debug.Log("名前を変更します…");
             mypos.name = MakeUniqueIdentity();
         }
     }
     string MakeUniqueIdentity() {
         //Player + NetIDで名前設定
         string UniqueName = "Player" + playerNetID.ToString();
+        Debug.Log("生成した名前：" + UniqueName);
         return UniqueName;
     }
     /// <summary>
@@ -53,6 +57,7 @@ public class Set_Player_ID : NetworkBehaviour {
     /// </summary>
     [Command]
     void CmdTellServerMyIdentity(string name) {
+        Debug.Log("この名前を設定しました" + name);
         PlayerUniqueIdentity = name;
     }
 }

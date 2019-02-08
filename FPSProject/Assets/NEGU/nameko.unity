@@ -134,19 +134,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 969a6c3cbb3096244b4fe5e8d00b0295, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.07193267
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 969a6c3cbb3096244b4fe5e8d00b0295, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 969a6c3cbb3096244b4fe5e8d00b0295, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 969a6c3cbb3096244b4fe5e8d00b0295, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9974095
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 969a6c3cbb3096244b4fe5e8d00b0295, type: 3}
       propertyPath: m_RootOrder
@@ -166,7 +166,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 969a6c3cbb3096244b4fe5e8d00b0295, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -8.25
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 969a6c3cbb3096244b4fe5e8d00b0295, type: 3}
@@ -193,7 +193,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 60767670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 206234737}
@@ -276,7 +276,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 206234733}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1721975561}
@@ -564,7 +564,8 @@ MonoBehaviour:
   bulletprefab: {fileID: 1677174133804264, guid: 964665a7e57766e4988707413d643be8,
     type: 2}
   muzzle: {fileID: 1105218131}
-  bulletPower: 1000
+  bulletPower: 5000
+  nextbullet: 20
   bulletnum: 7
 --- !u!4 &1721975561 stripped
 Transform:

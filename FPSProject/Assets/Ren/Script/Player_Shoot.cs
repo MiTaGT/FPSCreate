@@ -40,7 +40,7 @@ public class Player_Shoot : NetworkBehaviour {
         if (!isLocalPlayer) {
             return;
         }
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButton(0)) {
             //画面中央に向かってレイキャスト
             Ray ray = new Ray(Camera.main.transform.position,Camera.main.transform.forward);
 
@@ -61,9 +61,10 @@ public class Player_Shoot : NetworkBehaviour {
     /// </summary>
     [Command]
     void CmdShotPlayer(GameObject target) {
-        Debug.Log("HIT!!");
-        Debug.Log(target);
-        target.GetComponent<Player_Shoot>().m_life -= 1;
+            target.GetComponent<Player_Shoot>().m_life -= 1;
+        if (target.GetComponent<Player_Shoot>().m_life <= 0) {
+           target.GetComponent<Player_Shoot>().Respawn();
+        }
     }
     /// <summary>
     ///変化したときの処理
@@ -77,5 +78,18 @@ public class Player_Shoot : NetworkBehaviour {
         } else {
             m_EnemyLifeText.text = m_life.ToString();
         }
+    }
+    [Server]
+    void Respawn() {
+        //ID取得
+        short controllerID = GetComponent<NetworkIdentity>().playerControllerId;
+        //プレハブから新しいやつを生成
+        GameObject newPlayerObj = Instantiate(NetworkManager.singleton.playerPrefab);
+        //方向と向き指定
+        newPlayerObj.transform.SetPositionAndRotation(Vector3.zero,Quaternion.identity);
+        //プレイヤー権限移動
+        NetworkServer.ReplacePlayerForConnection(connectionToClient,newPlayerObj,controllerID);
+        //古いやつを消す
+        NetworkServer.Destroy(gameObject);
     }
 }
