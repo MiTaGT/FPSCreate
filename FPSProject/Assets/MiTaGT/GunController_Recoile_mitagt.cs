@@ -31,7 +31,7 @@ public class GunController_Recoile_mitagt : MonoBehaviour {
 
         A_source = GetComponent<AudioSource>();//自分自身の音声コンポーネントを取る
     }
-	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -64,7 +64,7 @@ public class GunController_Recoile_mitagt : MonoBehaviour {
                     shotShock();
                     fring = true;
                     A_source.PlayOneShot(A_clip);//音を流す処理
-                    
+
                 }
             }
         }
@@ -97,7 +97,7 @@ public class GunController_Recoile_mitagt : MonoBehaviour {
         {
 
             shotpoint = transform.parent.transform.localEulerAngles.x;//発射角度を記憶しておく
-            maxshockup += 5;
+            maxshockup += 1;
         }
         this.transform.parent.transform.Rotate(-5, 0, 0);//銃の反動
         shockup += 5;
