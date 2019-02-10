@@ -561,6 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b43fd23f6feac54bb55f00dc54932f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Camera: {fileID: 206234733}
   bulletprefab: {fileID: 1677174133804264, guid: 964665a7e57766e4988707413d643be8,
     type: 2}
   muzzle: {fileID: 1105218131}

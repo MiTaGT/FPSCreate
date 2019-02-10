@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour {
 
+    public GameObject Camera;
     public GameObject bulletprefab;
     public Transform muzzle;
     public float bulletPower; //弾を飛ばす強さ
@@ -16,7 +17,6 @@ public class GunController : MonoBehaviour {
 	void Start () {
 
         Cursor.lockState = CursorLockMode.Locked;
-
         Cursor.visible = false;
     }
 	
@@ -25,12 +25,13 @@ public class GunController : MonoBehaviour {
         if (fring == true)
         {
             this.transform.Rotate(10, 0, 0);//反動の角度を戻す
+            Camera.transform.Rotate(1.5f, 0, 0);
             fring = false;
         }
 
         if (Input.GetMouseButton(1))//エイムの切り替え
         {
-            this.transform.localPosition = new Vector3(0.0f, -0.3f, 0.8f);
+            this.transform.localPosition = new Vector3(0.0f, -0.18f, 0.55f);
         }
         else
         {
@@ -50,6 +51,7 @@ public class GunController : MonoBehaviour {
                     bulletnum -= 1;//残段数を減らす
                     cooltime = 0; //次に玉を打てる時間の更新
                     this.transform.Rotate(-10, 0, 0);//銃の反動
+                    Camera.transform.Rotate(-1.5f, 0, 0);
                     fring = true;
                 }
             }
