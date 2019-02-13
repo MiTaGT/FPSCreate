@@ -32,7 +32,7 @@ public class MatchMaker : MonoBehaviour {
         if (success) {
             NetworkManager.singleton.StartHost(matchInfo);
         } else {
-            Debug.Log("失敗");
+            Debug.Log("マッチ制作失敗");
         }
     }
     /// <summary>
@@ -44,7 +44,7 @@ public class MatchMaker : MonoBehaviour {
             m_Matchs  = matches;
         } else {
             //失敗…
-            Debug.Log("失敗");
+            Debug.Log("マッチリスト取得失敗");
         }
     }
     /// <summary>
@@ -56,7 +56,7 @@ public class MatchMaker : MonoBehaviour {
             NetworkManager.singleton.StartClient(matchInfo);
         } else {
             //失敗
-            Debug.Log("失敗");
+            Debug.Log("入場失敗");
         }
     }
     /// <summary>

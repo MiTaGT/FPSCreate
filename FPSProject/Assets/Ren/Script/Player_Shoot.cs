@@ -22,7 +22,7 @@ public class Player_Shoot : NetworkBehaviour {
     private void Start() {
         //頭上体力表示テキストを取ってくる
         //ローカルプレイヤー
-        if (isLocalPlayer) { 
+        if (isLocalPlayer) {
             //見た目を無効化
             //transform.Find("Avater").gameObject.SetActive(false);
             //ローカルプレイヤーの残り体力表示テキストを取得
@@ -62,6 +62,7 @@ public class Player_Shoot : NetworkBehaviour {
     [Command]
     void CmdShotPlayer(GameObject target) {
             target.GetComponent<Player_Shoot>().m_life -= 1;
+
         if (target.GetComponent<Player_Shoot>().m_life <= 0) {
            target.GetComponent<Player_Shoot>().Respawn();
         }
