@@ -7,7 +7,8 @@ public class ScoreDirector : MonoBehaviour {
     // Use this for initialization
     public int PlayerSize_A;//Aチームのプレイヤー数
 
-    //public int PlayerScore_A[];
+    public int[] playerScore_A = new int[]; //プレイやの人数分作る
+     
     void Start () {
 
 	}
